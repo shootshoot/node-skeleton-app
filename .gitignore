@@ -1,2 +1,6 @@
 node_modules/*
 static/bower_components/*
+logs/*
+.DS_Store
+.git/*
+.svn/*

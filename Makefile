@@ -11,8 +11,7 @@ init:
 all: build run
 
 build:
-	r.js -o public/main build
-	$(YAPP) -d public/remote build
+	r.js -o apps/public/web/build.js
 
 install:
 ifeq ($(NPM),)
