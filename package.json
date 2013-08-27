@@ -1,0 +1,21 @@
+{
+  "name": "WinAndWin",
+  "version": "0.0.1",
+  "description": "Official website of Win&Win",
+  "main": "admin.js",
+  "scripts": {
+    "build": "r.js -o admin/web/build.js && r.js -o public/web/build.js",
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "express": "~3.3.5",
+    "gm": "~1.11.1",
+    "nodemailer": "~0.5.2",
+    "mongoose": "~3.6.18",
+    "backbone-mongoose-crud": "git+https://github.com/shootshoot/backbone-mongoose-crud.git",
+    "mongoose-helper": "git+https://github.com/shootshoot/mongoose-helper.git"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
