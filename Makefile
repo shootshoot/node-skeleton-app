@@ -5,7 +5,7 @@ INIT = $(`pwd`/scripts/init.sh)
 
 .PHONY: all
 
-init:
+add-app:
 	$(shell `pwd`/scripts/create-app.sh)
 
 all: build run
