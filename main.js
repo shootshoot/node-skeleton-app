@@ -7,6 +7,25 @@ const
     url = require('url')
 ;
 
+var expressMarkdown = function(dir) {
+    return require('express-markdown')({
+        // directory where markdown files are stored
+        // required
+        directory: dir, 
+
+        // view to use for rendering markdown file
+        // optional
+        // default is undefined, no view
+        // view: 'foo',
+
+        // name of markdown variable passed in the context when rendering
+        // optional
+        // default 'markdown'
+        // variable: 'bar'
+
+    });
+}
+
 
 // Database
 mongoose.connect('mongodb://localhost/kitchensink');
@@ -29,9 +48,14 @@ app.configure('development', function(){
         dumpExceptions: true,
         showStack: true
     }));
+
     app.use('/static', express.directory('static'));
+    app.use('/src', expressMarkdown(__dirname));
     app.use('/src', express.directory(__dirname));
     app.use('/src', express.static(__dirname));
+    app.use('/doc', expressMarkdown(__dirname+'/doc'));
+    app.use('/doc', express.directory(__dirname+'/doc'));
+    app.use('/doc', express.static(__dirname+'/doc'));
 });
 
 app.configure(function(){
@@ -40,8 +64,11 @@ app.configure(function(){
 
 
 app.use(
-    express.vhost('www.*', require('./apps/public/server').app)
+    express.vhost('admin.*', require('./apps/admin/server').app)
 );
 
+app.use(
+    express.vhost('www.*', require('./apps/public/server').app)
+);
 
 app.listen(8080);

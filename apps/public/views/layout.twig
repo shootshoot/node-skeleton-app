@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>
+            {% block title %}
+            {% endblock title %}
+        </title>
+        {% block stylesheets %}
+            <link href="/main.css" type="text/css" rel="stylesheet" media="screen"/>
+        {% endblock stylesheets %}
+        {% block headscripts %}
+        {% endblock headscripts %}
+
+    </head>
+    <body>
+        {% block body %}
+        {% endblock body %}
+
+        {% block bodyscripts %}
+        {% endblock bodyscripts %}
+    </body>
+</html>

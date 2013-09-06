@@ -29,4 +29,4 @@ else
 endif
 
 run:
-	$(NPM) start
+	$(NPM) start --dev

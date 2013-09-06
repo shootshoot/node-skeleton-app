@@ -1,16 +1,20 @@
 const
+    sys = require('sys'), 
     express = require("express"), 
+    path = require("path"), 
     http = require('http'),
     fs = require('fs'),
-    twig = require('twig')
+    gm = require('gm'),
+    url = require('url')
     CrossDomain = require('../../lib/cors.js')
     Iframe = require('../../lib/iframe')
 ;
 
 var app = new express();
+app.set('title', 'backbone-mongoose-crud');
 
 // LOG File Config
-var logFile = fs.createWriteStream('./logs/public.log', {
+var logFile = fs.createWriteStream('./logs/admin.log', {
     flags: 'a+'
 }); //use {flags: 'w'} to open in write mode
 
@@ -35,16 +39,15 @@ app.configure(function() {
     app.use(express.methodOverride());
     app.use(express.compress());
     app.use(app.router);
-    app.set('view engine', 'twig');
-    app.set('views', __dirname+'/views');
 });
+
+app.use('/CRUD', require('backbone-mongoose-crud').express);
 
 app.use(express.static(__dirname+'/web'));
 
 
-app.get('/', function(req, res, method){
-    res.render('index', { name: 'Thierry'});
-});
+// Launch server
+app.listen(8081);
 
 exports.app = app;
 

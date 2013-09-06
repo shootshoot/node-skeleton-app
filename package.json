@@ -1,7 +1,7 @@
 {
-  "name": "WinAndWin",
+  "name": "Node Skeleton app",
   "version": "0.0.1",
-  "description": "Official website of Win&Win",
+  "description": "node skeleton application with express and twigjs",
   "main": "admin.js",
   "scripts": {
     "build": "r.js -o admin/web/build.js && r.js -o public/web/build.js",
@@ -13,7 +13,9 @@
     "nodemailer": "~0.5.2",
     "mongoose": "~3.6.18",
     "backbone-mongoose-crud": "git+https://github.com/shootshoot/backbone-mongoose-crud.git",
-    "mongoose-helper": "git+https://github.com/shootshoot/mongoose-helper.git"
+    "mongoose-helper": "git+https://github.com/shootshoot/mongoose-helper.git",
+    "express-markdown": "git+https://github.com/thi3rry/express-markdown.git",
+    "twig": "git+https://github.com/thi3rry/twig.js.git"
   },
   "repository": "",
   "author": "",
